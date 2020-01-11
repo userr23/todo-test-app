@@ -1,13 +1,15 @@
 import React          from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography     from '@material-ui/core/Typography';
-import ButtonGroup    from '@material-ui/core/ButtonGroup';
-import Button         from '@material-ui/core/Button';
-import ListItemText   from '@material-ui/core/ListItemText';
+import {
+    Typography,
+    ButtonGroup,
+    Button,
+    ListItemText
+}                     from '@material-ui/core';
 
 
 const useStyles = makeStyles( {
-    root          : {
+    root: {
         display       : 'flex',
         flexWrap      : 'no-wrap',
         justifyContent: 'space-between',
@@ -20,7 +22,7 @@ const styles = {
         color: '#363B4A',
     },
     labelImportant: {
-        color     : 'tomato',
+        color: 'tomato',
     },
     labelDone     : {
         textDecoration: 'line-through',
@@ -31,7 +33,7 @@ export default function TodoListItem ( {
                                            label, onDeleted,
                                            onToggleImportant,
                                            onToggleDone,
-                                           done, important
+                                           important, done
                                        } ) {
 
     const classes = useStyles();

@@ -1,16 +1,8 @@
-import React, { useState } from 'react';
-import TextField           from '@material-ui/core/TextField';
+import React     from 'react';
+import TextField from '@material-ui/core/TextField';
 
 
-export default function SearchPanel ( { onSearchChange } ) {
-
-    const [ term, setTerm ] = useState( '' );
-
-    const onChangeTerm = ( e ) => {
-        setTerm( e.target.value );
-        onSearchChange( e.target.value );
-    };
-
+export default function SearchPanel ( { searchTerm, onSearchChange } ) {
     return (
         <TextField
             id="outlined-search"
@@ -18,8 +10,10 @@ export default function SearchPanel ( { onSearchChange } ) {
             type="search"
             variant="outlined"
             size="small"
-            value={term}
-            onChange={onChangeTerm}
+            value={searchTerm}
+            onChange={e => {
+                onSearchChange( e.target.value )
+            }}
             placeholder=""
         />
     );

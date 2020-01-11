@@ -1,16 +1,29 @@
 import React  from 'react';
 import Header from './Header';
+import Footer from './Footer';
 import Meta   from './Meta';
+
+const wrapperStyle = {
+    display      : 'flex',
+    flexDirection: 'column',
+    minHeight    : '100vh',
+};
+
+const contentStyle = {
+    flex: '1 0 auto',
+};
+
 
 export default function Layout ( props ) {
     return (
-        <section>
+        <div style={wrapperStyle}>
             <Meta
-                siteTitle="ToDo App"
+                title={props.pageTitle}
                 siteDescription="Simple ToDo App"
             />
-            <Header pageTitle={props.pageTitle} />
-            <div className="content">{props.children}</div>
-        </section>
+            <Header />
+            <div style={contentStyle}>{props.children}</div>
+            <Footer />
+        </div>
     );
 }

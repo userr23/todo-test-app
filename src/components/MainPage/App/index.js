@@ -22,6 +22,7 @@ function App () {
     const classes = useStyles();
     const store   = useObservable( {
             todos : [],
+            label : '',
             term  : '',
             filter: 'all',
             get remainingTodos () {
@@ -55,6 +56,9 @@ function App () {
             },
             onSearchChange ( term ) {
                 store.term = term;
+            },
+            onLabelChange ( label ) {
+                store.label = label;
             },
             onFilterChange ( f ) {
                 store.filter = f;
@@ -108,6 +112,7 @@ function App () {
             <AppHeader toDo={store.remainingTodos} done={doneCount} />
             <div className={classes.root}>
                 <SearchPanel
+                    searchTerm={store.term}
                     onSearchChange={store.onSearchChange}
                 />
                 <ItemStatusFilter
@@ -124,6 +129,8 @@ function App () {
             />
 
             <ItemAddForm
+                labelTodo={store.label}
+                onLabelChange={store.onLabelChange}
                 onItemAdded={store.onItemAdded}
             />
         </Container>

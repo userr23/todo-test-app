@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
-import { makeStyles }      from '@material-ui/core/styles';
-import TextField           from '@material-ui/core/TextField';
-import Box                 from '@material-ui/core/Box';
-import Button              from '@material-ui/core/Button';
+import React                      from 'react';
+import { makeStyles }             from '@material-ui/core/styles';
+import { Box, Button, TextField } from '@material-ui/core';
 
 
-const useStyles = makeStyles( theme => ( {
+const useStyles = makeStyles( {
     root: {
-        '& .MuiTextField-root': {
-            margin: theme.spacing( 1 ),
-            width : '98%',
-        },
+        marginTop   : 15,
+        marginBottom: 15,
+        width       : '100%',
     },
-} ) );
+} );
 
-export default function ItemAddForm ( { onItemAdded } ) {
-
-    const [ labelTodo, setLabelTodo ] = useState( '' );
+export default function ItemAddForm ( { labelTodo, onLabelChange, onItemAdded } ) {
 
     const classes = useStyles();
 
@@ -24,7 +19,7 @@ export default function ItemAddForm ( { onItemAdded } ) {
         e.preventDefault();
         if ( labelTodo ) {
             onItemAdded( labelTodo );
-            setLabelTodo( '' );
+            onLabelChange( '' );
         }
     };
 
@@ -34,20 +29,20 @@ export default function ItemAddForm ( { onItemAdded } ) {
               autoComplete="off"
               onSubmit={onSubmit}
         >
-            <TextField
-                id="standard-search"
-                label="Add ToDo"
-                type="search"
-                value={labelTodo}
-                onChange={( e ) => setLabelTodo( e.target.value )}
-                placeholder="What needs to be done?"
+            <TextField className={classes.root}
+                       id="standard-search"
+                       label="Add ToDo"
+                       type="search"
+                       value={labelTodo}
+                       onChange={e => onLabelChange( e.target.value )}
+                       placeholder="What needs to be done?"
             />
             <Box>
-                <Button className={classes.root.margin}
-                        variant="contained"
-                        color="primary"
-                        size="medium"
-                        type="submit"
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="medium"
+                    type="submit"
                 >
                     Add Item
                 </Button>

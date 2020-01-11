@@ -1,6 +1,20 @@
 import React from 'react';
 import Link  from 'next/link';
 
+const headerStyle = {
+    flex        : '0 0 auto',
+    marginBottom: '2rem',
+};
+
+const navStyle = {
+    padding       : '1.5rem 1.25rem',
+    borderBottom  : '1px solid #ebebeb',
+    display       : 'flex',
+    justifyContent: 'start',
+    flexDirection : 'row',
+    alignItems    : 'center',
+};
+
 const linkStyle = {
     marginRight   : 15,
     marginBottom  : 15,
@@ -10,11 +24,11 @@ const linkStyle = {
     color         : 'tomato',
 };
 
-export default function Header ( ) {
+export default function Header () {
     return (
-        <header className="header">
+        <header style={headerStyle}>
             <nav
-                className="nav"
+                style={navStyle}
                 role="navigation"
                 aria-label="main navigation"
             >
@@ -25,37 +39,6 @@ export default function Header ( ) {
                     <a style={linkStyle}>About</a>
                 </Link>
             </nav>
-            <style jsx>
-                {`
-                .header {
-                    margin-bottom: 2rem;
-                }
-                  nav {
-                    padding: 1.5rem 1.25rem;
-                    border-bottom: 1px solid #ebebeb;
-                    display: flex;
-                    justify-content: start;
-                    flex-direction: row;
-                    align-items: center;
-                  }
-                  @media (min-width: 900px) {
-                    .header {
-                      margin-bottom: 0;
-                      height: 100vh;
-                      position: fixed;
-                      left: 0;
-                      top: 0;
-                    }
-                    .nav {
-                      padding: 2rem;
-                      width: 10vw;
-                      height: 100%;
-                      border-right: 1px solid #ebebeb;
-                      border-bottom: none;
-                      flex-direction: column;
-                      align-items: start;
-                `}
-            </style>
         </header>
     );
 }

@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react';
-import Head                from 'next/head';
+import React from 'react';
+import Head  from 'next/head';
 
-export default function Meta ( props ) {
+export default function Meta ( { title, description } ) {
     return (
-        <Fragment>
+        <>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="utf-8" />
-                <title>{props.siteTitle}</title>
-                <meta name="Description" content={props.description}/>
+                <title>{title}</title>
+                <meta name="Description" content={description} />
             </Head>
-        </Fragment>
+        </>
     )
 }

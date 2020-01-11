@@ -1,6 +1,5 @@
-import React       from 'react';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Button      from '@material-ui/core/Button';
+import React                   from 'react';
+import { ButtonGroup, Button } from '@material-ui/core';
 
 
 export default function ItemStatusFilter ( { filter, onFilterChange } ) {
