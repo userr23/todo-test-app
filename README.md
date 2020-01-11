@@ -3,14 +3,7 @@
 Todo application built using MobX, Material UI and NextJS
 
 ## How to use
-
-Download the source code:
-
-```bash
-curl https://github.com/userr23/todo-test-app/archive/master.zip
-cd todo-test-app
-```
-
+Download sorce code or clone repository.
 Install it and run:
 
 ```bash
