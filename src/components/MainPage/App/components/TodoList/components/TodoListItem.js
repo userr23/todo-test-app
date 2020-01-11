@@ -13,19 +13,13 @@ const useStyles = makeStyles( {
         justifyContent: 'space-between',
         width         : '100%',
     },
-    buttonsWrapper: {
-        display : 'flex',
-        flexWrap: 'no-wrap',
-    },
 } );
 
 const styles = {
     label         : {
-        color: 'slategrey',
+        color: '#363B4A',
     },
     labelImportant: {
-        fontWeight: 'fontWeightBold',
-        fontSize  : 'h6.fontSize',
         color     : 'tomato',
     },
     labelDone     : {
@@ -52,7 +46,7 @@ export default function TodoListItem ( {
                               ...( done ? styles.labelDone : {} ),
                           }}
             />
-            <div className={classes.buttonsWrapper}>
+            <div>
                 <ButtonGroup size="small" color="secondary">
                     <Button variant="outlined"
                             size="small"
