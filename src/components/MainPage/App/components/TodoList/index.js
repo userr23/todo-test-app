@@ -8,12 +8,12 @@ import { makeStyles } from '@material-ui/core';
 import TodoListItem from './components/TodoListItem';
 
 
-const useStyles = makeStyles( theme => ( {
+const useStyles = makeStyles( {
     root: {
         marginTop   : 10,
         marginBottom: 10,
     },
-} ) );
+} );
 
 export default function TodoList ( {
                                        todos, onDeleted,

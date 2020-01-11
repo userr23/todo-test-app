@@ -10,13 +10,13 @@ import ItemStatusFilter from './components/ItemStatusFilter';
 import ItemAddForm      from './components/ItemAddForm';
 
 
-const useStyles = makeStyles( theme => ( {
+const useStyles = makeStyles( {
     root: {
         display       : 'flex',
         flexWrap      : 'wrap',
         justifyContent: 'space-between',
     },
-} ) );
+} );
 
 function App () {
     const classes = useStyles();
