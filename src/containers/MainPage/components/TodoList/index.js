@@ -9,7 +9,6 @@ import { makeStyles } from '@material-ui/core';
 
 import TodoListItem from './components/TodoListItem';
 
-
 const useStyles = makeStyles( {
     root: {
         marginTop   : 10,
@@ -27,7 +26,7 @@ export default function TodoList ( {
 
         const { id, ...itemProps } = item;
         return (
-            <ListItem key={id} className="list-group-item">
+            <ListItem key={id} className='list-group-item'>
                 <TodoListItem
                     {...itemProps}
                     deleteItem={() => deleteItem( id )}
@@ -41,7 +40,7 @@ export default function TodoList ( {
     return (
         <List>
             <Divider className={classes.root} />
-            {!todos.length && <ListItemText secondary="ToDo list is empty. Write something to do..." />}
+            {!todos.length && <ListItemText secondary='ToDo list is empty. Write something to do...' />}
             {elements}
             <Divider className={classes.root} />
         </List>

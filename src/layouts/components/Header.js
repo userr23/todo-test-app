@@ -1,8 +1,8 @@
-import React from 'react';
+import React      from 'react';
 import { styled } from '@material-ui/core/styles';
 
 import { Container } from '@material-ui/core';
-import NavLink   from '../../components/NavLink';
+import NavLink       from '../../components/NavLink';
 import Logo          from './Logo';
 
 const HeaderStyled = styled( 'header' )( ( { theme } ) => ( {
@@ -27,8 +27,8 @@ export default function Header () {
             <ContainerStyled maxWidth='md'>
                 <Logo />
                 <nav>
-                    <NavLink href="/"      label='Home' />
-                    <NavLink href="/about" label='About' />
+                    <NavLink href='/' label='Home' />
+                    <NavLink href='/about' label='About' />
                 </nav>
             </ContainerStyled>
         </HeaderStyled>

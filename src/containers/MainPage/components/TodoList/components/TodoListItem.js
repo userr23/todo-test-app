@@ -7,7 +7,6 @@ import {
     ListItemText
 }                     from '@material-ui/core';
 
-
 const useStyles = makeStyles( {
     root: {
         display       : 'flex',
@@ -39,7 +38,7 @@ export default function TodoListItem ( {
     const classes = useStyles();
 
     return (
-        <Typography component="div" className={classes.root}>
+        <Typography component='div' className={classes.root}>
             <ListItemText primary={label}
                           onClick={toggleDone}
                           style={{
@@ -49,16 +48,16 @@ export default function TodoListItem ( {
                           }}
             />
             <div>
-                <ButtonGroup size="small" color="secondary">
-                    <Button variant="outlined"
-                            size="small"
+                <ButtonGroup size='small' color='secondary'>
+                    <Button variant='outlined'
+                            size='small'
                             onClick={toggleImportant}
                     >
                         !
                     </Button>
 
-                    <Button variant="outlined"
-                            size="small"
+                    <Button variant='outlined'
+                            size='small'
                             onClick={deleteItem}
                     >
                         DEL

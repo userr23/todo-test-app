@@ -10,7 +10,7 @@ const StyledLink = styled( 'a' )( ( { theme, active, showActive } ) => ( {
     cursor        : 'pointer',
     transition    : 'color 400ms',
 
-    color : showActive
+    color: showActive
         ? active
             ? theme.palette.common.white
             : theme.palette.primary.light
@@ -19,7 +19,7 @@ const StyledLink = styled( 'a' )( ( { theme, active, showActive } ) => ( {
     '&:first-child': {
         marginLeft: 0
     },
-    '&:hover': {
+    '&:hover'      : {
         color: theme.palette.common.white
     }
 } ) );

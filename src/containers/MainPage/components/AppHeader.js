@@ -15,10 +15,10 @@ export default function AppHeader ( { toDo, done } ) {
 
     return (
         <div className={classes.root}>
-            <Typography variant="h2" gutterBottom>
+            <Typography variant='h2' gutterBottom>
                 ToDo List
             </Typography>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant='h6' gutterBottom>
                 {toDo} more to do, {done} done
             </Typography>
         </div>

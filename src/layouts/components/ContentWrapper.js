@@ -11,7 +11,7 @@ const ContainerStyled = styled( Container )( ( { theme } ) => ( {
 
 export default function ContentWrapper ( { content } ) {
     return (
-        <ContainerStyled maxWidth="sm">
+        <ContainerStyled maxWidth='sm'>
             {content}
         </ContainerStyled>
     );

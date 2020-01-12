@@ -14,7 +14,7 @@ const LogoH1 = styled( 'h1' )( ( { theme } ) => ( {
 export default function Logo () {
     return (
         <LogoH1>
-            <NavLink href="/" label='Todo App' showActive={false} />
+            <NavLink href='/' label='Todo App' showActive={false} />
         </LogoH1>
     );
 }
