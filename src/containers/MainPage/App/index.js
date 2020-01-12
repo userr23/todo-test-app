@@ -1,7 +1,6 @@
 import React                       from 'react';
 import { observer, useObservable } from 'mobx-react-lite';
-import Container                   from '@material-ui/core/Container';
-import { makeStyles }              from '@material-ui/core/styles';
+import { styled }           from '@material-ui/core/styles';
 
 import AppHeader        from './components/AppHeader';
 import SearchPanel      from './components/SearchPanel';
@@ -11,22 +10,20 @@ import ItemAddForm      from './components/ItemAddForm';
 import TodosStore       from '../../../store/TodosStore';
 
 
-const useStyles = makeStyles( {
-    root: {
-        display       : 'flex',
-        flexWrap      : 'wrap',
-        justifyContent: 'space-between',
-    },
-} );
+const FiltersWrapper = styled( 'div' )( () => ( {
+    display       : 'flex',
+    flexWrap      : 'wrap',
+    justifyContent: 'space-between',
+    alignItems    : 'center'
+} ) );
 
 function App () {
-    const classes = useStyles();
     const store   = useObservable( TodosStore );
 
     return (
-        <Container maxWidth="sm">
+        <>
             <AppHeader toDo={store.remainingCount} done={store.doneCount} />
-            <div className={classes.root}>
+            <FiltersWrapper>
                 <SearchPanel
                     term={store.term}
                     changeTerm={store.changeTerm}
@@ -35,7 +32,7 @@ function App () {
                     filter={store.filter}
                     changeFilter={store.changeFilter}
                 />
-            </div>
+            </FiltersWrapper>
 
             <TodoList
                 todos={store.filteredItems}
@@ -49,7 +46,7 @@ function App () {
                 changeLabel={store.changeLabel}
                 addItem={store.addItem}
             />
-        </Container>
+        </>
     );
 }
 
