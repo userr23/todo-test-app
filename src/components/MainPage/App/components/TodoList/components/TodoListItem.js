@@ -30,10 +30,10 @@ const styles = {
 };
 
 export default function TodoListItem ( {
-                                           label, onDeleted,
-                                           onToggleImportant,
-                                           onToggleDone,
-                                           important, done
+                                           label, important, done,
+                                           deleteItem,
+                                           toggleImportant,
+                                           toggleDone
                                        } ) {
 
     const classes = useStyles();
@@ -41,7 +41,7 @@ export default function TodoListItem ( {
     return (
         <Typography component="div" className={classes.root}>
             <ListItemText primary={label}
-                          onClick={onToggleDone}
+                          onClick={toggleDone}
                           style={{
                               ...styles.label,
                               ...( important ? styles.labelImportant : {} ),
@@ -52,14 +52,14 @@ export default function TodoListItem ( {
                 <ButtonGroup size="small" color="secondary">
                     <Button variant="outlined"
                             size="small"
-                            onClick={onToggleImportant}
+                            onClick={toggleImportant}
                     >
                         !
                     </Button>
 
                     <Button variant="outlined"
                             size="small"
-                            onClick={onDeleted}
+                            onClick={deleteItem}
                     >
                         DEL
                     </Button>

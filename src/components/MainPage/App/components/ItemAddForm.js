@@ -11,15 +11,15 @@ const useStyles = makeStyles( {
     },
 } );
 
-export default function ItemAddForm ( { labelTodo, onLabelChange, onItemAdded } ) {
+export default function ItemAddForm ( { label, changeLabel, addItem } ) {
 
     const classes = useStyles();
 
     const onSubmit = ( e ) => {
         e.preventDefault();
-        if ( labelTodo ) {
-            onItemAdded( labelTodo );
-            onLabelChange( '' );
+        if ( label ) {
+            addItem( label );
+            changeLabel( '' );
         }
     };
 
@@ -32,9 +32,10 @@ export default function ItemAddForm ( { labelTodo, onLabelChange, onItemAdded } 
             <TextField className={classes.root}
                        id="standard-search"
                        label="Add ToDo"
-                       type="search"
-                       value={labelTodo}
-                       onChange={e => onLabelChange( e.target.value )}
+                       type="text"
+                       autoFocus={true}
+                       value={label}
+                       onChange={e => changeLabel( e.target.value )}
                        placeholder="What needs to be done?"
             />
             <Box>

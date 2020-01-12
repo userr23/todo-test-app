@@ -18,9 +18,9 @@ const useStyles = makeStyles( {
 } );
 
 export default function TodoList ( {
-                                       todos, onDeleted,
-                                       onToggleImportant,
-                                       onToggleDone
+                                       todos, deleteItem,
+                                       toggleImportant,
+                                       toggleDone
                                    } ) {
     const classes  = useStyles();
     const elements = todos.map( ( item ) => {
@@ -30,9 +30,9 @@ export default function TodoList ( {
             <ListItem key={id} className="list-group-item">
                 <TodoListItem
                     {...itemProps}
-                    onDeleted={() => onDeleted( id )}
-                    onToggleImportant={() => onToggleImportant( id )}
-                    onToggleDone={() => onToggleDone( id )}
+                    deleteItem={() => deleteItem( id )}
+                    toggleImportant={() => toggleImportant( id )}
+                    toggleDone={() => toggleDone( id )}
                 />
             </ListItem>
         );

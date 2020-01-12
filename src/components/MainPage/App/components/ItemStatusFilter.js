@@ -2,7 +2,7 @@ import React                   from 'react';
 import { ButtonGroup, Button } from '@material-ui/core';
 
 
-export default function ItemStatusFilter ( { filter, onFilterChange } ) {
+export default function ItemStatusFilter ( { filter, changeFilter } ) {
 
     const buttonTypes = [
         { name: 'all', label: 'All' },
@@ -17,7 +17,7 @@ export default function ItemStatusFilter ( { filter, onFilterChange } ) {
         return (
             <Button variant={buttonVariant}
                     key={name}
-                    onClick={() => onFilterChange( name )}
+                    onClick={() => changeFilter( name )}
             >
                 {label}
             </Button>

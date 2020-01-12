@@ -2,7 +2,7 @@ import React     from 'react';
 import TextField from '@material-ui/core/TextField';
 
 
-export default function SearchPanel ( { searchTerm, onSearchChange } ) {
+export default function SearchPanel ( { term, changeTerm } ) {
     return (
         <TextField
             id="outlined-search"
@@ -10,9 +10,9 @@ export default function SearchPanel ( { searchTerm, onSearchChange } ) {
             type="search"
             variant="outlined"
             size="small"
-            value={searchTerm}
+            value={term}
             onChange={e => {
-                onSearchChange( e.target.value )
+                changeTerm( e.target.value )
             }}
             placeholder=""
         />
