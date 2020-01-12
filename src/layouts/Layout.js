@@ -12,7 +12,7 @@ export default function Layout ( props ) {
     return (
         <>
             <Meta siteTitle={title} />
-            <Header pageTitle={props.pageTitle} />
+            <Header pageTitle={props.title} />
             <ContentWrapper content={props.children} />
             <Footer />
 

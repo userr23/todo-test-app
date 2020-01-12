@@ -5,7 +5,7 @@ import Layout   from '../layouts/Layout';
 
 export default function TodoApp () {
     return (
-        <Layout  pageTitle="ToDo App">
+        <Layout  title="ToDo App">
             <MainPage />
         </Layout>
     );

@@ -1,18 +1,15 @@
 import { observable, computed, action, autorun, toJS } from 'mobx';
 
-const FILTERS = {
-    all      : { tag: 'all todos', filter: null },
-    active   : { tag: 'active',    filter: t => !t.done },
-    done     : { tag: 'done',      filter: t => t.done },
-    important: { tag: 'important', filter: t => t.important }
-};
+import FILTERS from '../data/filters.data';
+
+const FILTERS_MAP = FILTERS.reduce( ( res, f ) => ( { ...res, [ f.id ]: f } ), {} );
 
 const LOCAL_STORAGE_KEY = '__todo__';
 
 class TodosStore {
     @observable todos  = [];
     @observable term   = '';
-    @observable label   = '';
+    @observable label  = '';
     @observable filter = 'all';
 
     constructor () {
@@ -27,17 +24,17 @@ class TodosStore {
     }
 
     @computed get doneCount () {
-        return this.todos.filter( FILTERS.done.filter ).length;
+        return this.todos.filter( FILTERS_MAP.done.filter ).length;
     }
 
     @computed get remainingCount () {
-        return this.todos.filter( FILTERS.active.filter ).length;
+        return this.todos.filter( FILTERS_MAP.active.filter ).length;
     }
 
     @computed get filteredItems () {
         let result = [ ...this.todos ];
 
-        const { filter } = FILTERS[ this.filter ];
+        const { filter } = FILTERS_MAP[ this.filter ];
 
         if ( filter ) {
             result = result.filter( filter );
@@ -84,7 +81,7 @@ class TodosStore {
 
     @action.bound
     changeFilter ( filter ) {
-        if ( FILTERS[ filter ] ) {
+        if ( FILTERS_MAP[ filter ] ) {
             this.filter = filter;
         }
     }
@@ -112,10 +109,10 @@ function formItem ( label ) {
 
     return {
         label,
-        added: now,
+        added    : now,
         important: false,
-        done: false,
-        id: `item-${ now }`
+        done     : false,
+        id       : `item-${now}`
     };
 }
 

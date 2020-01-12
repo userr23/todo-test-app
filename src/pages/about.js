@@ -5,7 +5,7 @@ import Layout    from '../layouts/Layout';
 
 export default function About () {
     return (
-        <Layout pageTitle="About">
+        <Layout title="About">
             <AboutPage />
         </Layout>
     );
