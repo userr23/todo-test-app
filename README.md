@@ -3,7 +3,7 @@
 Todo application built using MobX, Material UI and NextJS
 
 ## How to use
-Download sorce code or clone repository.
+Download source code or clone repository.
 Install it and run:
 
 ```bash
